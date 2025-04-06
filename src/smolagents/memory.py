@@ -154,7 +154,7 @@ class PlanningStep(MemoryStep):
             return []
         return [
             Message(role=MessageRole.ASSISTANT, content=[{"type": "text", "text": self.plan.strip()}]),
-            Message(role=MessageRole.USER, content=[{"type": "text", "text": "Now go on and execute this plan."}]),
+            Message(role=MessageRole.USER, content=[{"type": "text", "text": "Now let's execute this plan."}]),
             # This second message creates a role change to prevent models models from simply continuing the plan message
         ]
 
