@@ -1323,6 +1323,8 @@ class CodeAgent(MultiStepAgent):
 
             memory_step.model_output = model_output
         except Exception as e:
+            print("Error here!", flush=True)
+            print(self.input_messages, flush=True)
             raise AgentGenerationError(f"Error in generating model output:\n{e}", self.logger) from e
 
         ### Parse output ###
