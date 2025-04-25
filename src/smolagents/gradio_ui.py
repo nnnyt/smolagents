@@ -16,7 +16,6 @@
 import os
 import re
 import shutil
-from typing import Optional
 
 from smolagents.agent_types import AgentAudio, AgentImage, AgentText
 from smolagents.agents import MultiStepAgent, PlanningStep
@@ -167,14 +166,17 @@ def pull_messages_from_step(
 def stream_to_gradio(
     agent,
     task: str,
+    task_images: list | None = None,
     reset_agent_memory: bool = False,
-    additional_args: Optional[dict] = None,
+    additional_args: dict | None = None,
 ):
     """Runs an agent with the given task and streams the messages from the agent as gradio ChatMessages."""
     total_input_tokens = 0
     total_output_tokens = 0
 
-    for step_log in agent.run(task, stream=True, reset=reset_agent_memory, additional_args=additional_args):
+    for step_log in agent.run(
+        task, images=task_images, stream=True, reset=reset_agent_memory, additional_args=additional_args
+    ):
         # Track tokens if model provides them
         if getattr(agent.model, "last_input_token_count", None) is not None:
             total_input_tokens += agent.model.last_input_token_count
