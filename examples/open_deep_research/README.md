@@ -14,7 +14,7 @@ To get started, follow the steps below:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/huggingface/smolagents.git
+git clone https://github.com/nnnyt/smolagents.git
 cd smolagents/examples/open_deep_research
 ```
 
@@ -45,10 +45,20 @@ For example, to use the default `o1` model, you need to set the `OPENAI_API_KEY`
 > [!WARNING]
 > The use of the default `o1` model is restricted to tier-3 access: https://help.openai.com/en/articles/10362446-api-access-to-o1-and-o3-mini
 
+If you use Azure for OpenAI models, you should set those environment variables for Azure.
 
 ## Usage
 
-Then you're good to go! Run the run.py script, as in:
+Then you're good to go! 
+
+1. Save the samples in tasks.tsv. In this TSV file, each sample occupies one line without a table header. Each line should be formatted as f`{task_id}\t{task_description}`, where `task_id` can be any string.
+2. Run `run_tsv.py`. You can set the model name in this program.
+
+### Alternative usage
+
+If you don't want to use this TSV file for many samples but only would like to test one sample, you can also run in an alternative.
+
+Run the run.py script, as in:
 ```bash
 python run.py --model-id "o1" "Your question here!"
 ```
