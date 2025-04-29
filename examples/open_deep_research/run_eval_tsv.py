@@ -152,7 +152,8 @@ def answer_single_question(example: TaskRow, model_id: str, answers_file: str):
 Give it all you can: I know for a fact that you have access to all the relevant tools to solve it and find the correct answer (the answer does exist). Failure or 'I cannot answer' or 'None found' will not be tolerated, success will be rewarded.
 Run verification steps if that's needed, you must make sure you find the correct answer!
 Here is the task:
-""" + example["question"]
+"""
+    augmented_question += example["question"]
 
 
     start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
