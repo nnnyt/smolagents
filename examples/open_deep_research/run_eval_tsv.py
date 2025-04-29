@@ -148,12 +148,12 @@ def answer_single_question(example: TaskRow, model_id: str, answers_file: str):
 
     agent = create_agent_team(model)
 
-    augmented_question = """You have one question to answer. It is paramount that you provide a correct answer.
+    suffix_question = """You have one question to answer. It is paramount that you provide a correct answer.
 Give it all you can: I know for a fact that you have access to all the relevant tools to solve it and find the correct answer (the answer does exist). Failure or 'I cannot answer' or 'None found' will not be tolerated, success will be rewarded.
 Run verification steps if that's needed, you must make sure you find the correct answer!
 Here is the task:
 """
-    augmented_question += example["question"]
+    augmented_question = suffix_question + example["question"]
 
 
     start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
