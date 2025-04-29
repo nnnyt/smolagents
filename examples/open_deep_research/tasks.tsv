@@ -1,6 +1,5 @@
-any_string_as_task1_id    "task1 line 1: use natural language to describe the task
-task1 line 2
-task1 line 3"
-any_string_as_task2_id    "task2 line 1
-task2 line 2
-task2 line 3"
+task1	How many studio albums did Mercedes Sosa release before 2007?
+task2	What was the population of Tokyo in 2020?
+task3	Who won the Nobel Prize in Physics in 2023?
+task4	What is the current exchange rate between USD and EUR?
+task5	When was the first iPhone released?
